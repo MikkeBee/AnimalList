@@ -1,12 +1,7 @@
 import React from "react";
-import Cards from "./Cards";
 
-const Main = () => {
-  return (
-    <section className="gridContainer">
-      <Cards />
-    </section>
-  );
+const Main = (props) => {
+  return <section className="gridContainer">{props.children}</section>;
 };
 
 export default Main;

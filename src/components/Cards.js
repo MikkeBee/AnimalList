@@ -1,15 +1,22 @@
 import React from "react";
 import Button from "./Button";
+import RemoveButton from "./RemoveButton";
 
-const Cards = () => {
+const Cards = (props) => {
   return (
     <div className="wholeCard">
-      <div className="cardTop"></div>
+      <RemoveButton />
+      <div className="cardTop">
+        <img
+          src={`https://source.unsplash.com/1600x900/?${props.name}`}
+          alt={props.name}
+        />
+      </div>
       <div className="cardBottom">
-        <p className="animalName">Animal name</p>
+        <p className="animalName">{props.name}</p>
         <div>
           <p className="luuv">
-            ♥️ <span>0</span>
+            ♥️ <span>{props.likes}</span>
           </p>
           <Button>Like it!</Button>
         </div>
