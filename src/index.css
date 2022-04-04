@@ -106,12 +106,14 @@ h1 {
   color: whitesmoke;
   font-size: 1.3rem;
   font-weight: 600;
+  transition: 0.5s;
 }
 
 .cardBottom button:hover {
   background-color: rgb(176, 233, 119);
   box-shadow: inset 0 0 30px rgb(13, 189, 22);
   color: rgb(34, 34, 34);
+  transition: 0.5s;
 }
 
 .remove {

@@ -5,7 +5,7 @@ import RemoveButton from "./RemoveButton";
 const Cards = (props) => {
   return (
     <div className="wholeCard">
-      <RemoveButton />
+      <RemoveButton remove={props.remove} />
       <div className="cardTop">
         <img
           src={`https://source.unsplash.com/1600x900/?${props.name}`}
@@ -18,7 +18,7 @@ const Cards = (props) => {
           <p className="luuv">
             ♥️ <span>{props.likes}</span>
           </p>
-          <Button>Like it!</Button>
+          <Button add={props.add}>Like it!</Button>
         </div>
       </div>
     </div>
@@ -26,3 +26,5 @@ const Cards = (props) => {
 };
 
 export default Cards;
+
+// When adding "3rd" level components (like remove and add button), you must pass the items at this point
