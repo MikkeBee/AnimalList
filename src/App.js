@@ -8,6 +8,7 @@ class App extends Component {
   //Component must be defined e.g. on row 1
   state = {
     animals: animals,
+    search: "",
     // right side refers to state, left side is object in array. Can remove left side and just leave one 'animals'
   };
 
@@ -38,23 +39,44 @@ class App extends Component {
     });
   };
 
+  searchHandler = (e) => {
+    this.setState({
+      search: e.target.value,
+    });
+    console.log(this.state.search); //if logging state, it must come after state has been set, not before (i.e. between setstate and searchhandler)
+  };
+
   render() {
+    const animalFilter = this.state.animals.filter((animal) => {
+      return animal.name
+        .toLowerCase()
+        .includes(this.state.search.toLowerCase());
+    });
+
     return (
       <div className="App">
         <Header />
-
-        <Main>
-          {this.state.animals.map((animal) => (
-            <Cards
-              key={animal.name}
-              name={animal.name}
-              likes={animal.likes}
-              // remove1={this.removeHandler.bind(this, animal.name)}
-              remove={() => this.removeHandler(animal.name)}
-              add={() => this.addLikeHandler(animal.name)}
-            />
-          ))}
-        </Main>
+        <div className="inputBox">
+          <h2>{this.state.animals.length} Animals</h2>
+          <input type="text" onChange={this.searchHandler} />
+          {/* <h3>{this.state.search}</h3> */}
+        </div>
+        <div className="flexContainer">
+          <Main>
+            {animalFilter.map((animal) => (
+              // {this.state.animals.map((animal) => ( (to use when not using animalFilter)
+              <Cards
+                key={animal.name}
+                name={animal.name}
+                likes={animal.likes}
+                // remove1={this.removeHandler.bind(this, animal.name)}
+                remove={() => this.removeHandler(animal.name)}
+                add={() => this.addLikeHandler(animal.name)}
+                search={this.state.search}
+              />
+            ))}
+          </Main>
+        </div>
       </div>
     );
   }

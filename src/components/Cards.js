@@ -7,6 +7,7 @@ const Cards = (props) => {
     <div className="wholeCard">
       <RemoveButton remove={props.remove} />
       <div className="cardTop">
+        {/* <h3>{props.search}</h3> */}
         <img
           src={`https://source.unsplash.com/1600x900/?${props.name}`}
           alt={props.name}
