@@ -59,7 +59,7 @@ class App extends Component {
         <div className="inputBox">
           <h2>{this.state.animals.length} Animals</h2>
           <input type="text" onChange={this.searchHandler} />
-          {/* <h3>{this.state.search}</h3> */}
+          {/* {<h3>{this.state.search}</h3>} */}
         </div>
         <div className="flexContainer">
           <Main>
